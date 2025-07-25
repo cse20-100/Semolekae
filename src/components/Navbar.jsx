@@ -1,11 +1,10 @@
-// src/components/Navbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gradient-to-r from-indigo-900 via-blue-900 to-blue-800 px-10 py-5 flex justify-between items-center text-white shadow-lg sticky top-0 z-50">
-      <div className="text-2xl font-extrabold tracking-wide drop-shadow-md">
+    <nav className="bg-black px-10 py-5 flex justify-between items-center text-white shadow-lg sticky top-0 z-50">
+      <div className="text-2xl font-extrabold tracking-wide drop-shadow-md font-serif">
         SEMOLEKAE LEGAL ATTORNEYS
       </div>
 

@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -15,10 +14,11 @@ import Signup from "./pages/Signup";
 const App = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-900 via-blue-800 to-indigo-900 text-white">
+      <div className="flex flex-col min-h-screen bg-[#FFDAB9] text-white">
         <Navbar />
 
-        <main className="flex-1 max-w-6xl mx-auto p-8 space-y-12">
+        {/* Removed padding and layout constraints for full-screen Home */}
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

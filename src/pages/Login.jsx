@@ -1,63 +1,55 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState("");
 
-  const handleChange = e =>
+  const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post(
-        'http://localhost:5000/api/auth/login',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      setMessage('Login successful!');
-      console.log('Login response:', res.data);
-
-      // Optionally store token
-      // localStorage.setItem('token', res.data.token);
-    } catch (err) {
-      console.error('Login error:', err.response || err.message || err);
-      setMessage(err.response?.data?.error || 'Login failed.');
-    }
+    // Your login logic here (e.g. axios call)
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
-      <h2 className="text-2xl font-semibold mb-4">Login</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="p-2 border rounded"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="p-2 border rounded"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" className="bg-green-600 text-white py-2 rounded hover:bg-green-700">
-          Login
-        </button>
-      </form>
-      {message && <p className="mt-4 text-red-500">{message}</p>}
+    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-6 py-16 flex flex-col items-center">
+      <div className="max-w-lg w-full bg-[#17202a] rounded-2xl p-10 shadow-lg border-4 border-yellow-400">
+        <h2 className="text-4xl font-extrabold text-yellow-400 mb-8 text-center">
+          Login to Semolekae Legal
+        </h2>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="px-4 py-3 rounded-lg border border-yellow-400 bg-[#1c2736] text-white placeholder-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            className="px-4 py-3 rounded-lg border border-yellow-400 bg-[#1c2736] text-white placeholder-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <button
+            type="submit"
+            className="bg-yellow-400 text-[#0f172a] font-bold py-3 rounded-lg hover:bg-yellow-300 transition"
+          >
+            Login
+          </button>
+        </form>
+
+        {message && (
+          <p className="mt-6 text-yellow-300 font-semibold text-center">{message}</p>
+        )}
+      </div>
     </div>
   );
 };
