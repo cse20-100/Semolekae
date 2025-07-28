@@ -2,59 +2,60 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white flex flex-col items-center justify-center px-6 py-12">
-      <div className="w-full max-w-4xl p-8 rounded-2xl border-4 border-yellow-400 bg-[#1e293b] shadow-lg space-y-6">
-        <h2 className="text-4xl font-extrabold text-yellow-400 mb-2 text-center">
-          Contact Us
-        </h2>
-        <p className="text-gray-300 text-center">
-          Feel free to reach out via email or visit our YouTube channel for more info.
-        </p>
+    <div className="h-[70vh] bg-gradient-to-b from-[#e5eef5] to-white text-[#0B2B59] px-6 py-20">
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Left: Contact Info */}
+        <div className="flex flex-col justify-center space-y-6">
+          <h2 className="text-3xl font-bold">OUR YOUTUBE CHANNEL</h2>
+          <p className="text-gray-700">
+            Reach out via our customer service mail or subscribe to our channel.
+          </p>
 
-        {/* ✉️ Contact Info */}
-        <div className="mb-4 text-center">
-          <p className="text-lg font-semibold text-yellow-400 mb-1">Email:</p>
-          <a
-            href="mailto:consultations@semolekaelegal.com"
-            className="text-yellow-300 hover:underline"
-          >
-            consultations@semolekaelegal.com
-          </a>
+          {/* Email */}
+          <div>
+            <p className="text-base font-semibold text-[#1B74E4] mb-1">Customer Service:</p>
+            <a
+              href="mailto:consultations@semolekaelegal.com"
+              className="text-[#0B2B59] hover:underline text-lg"
+            >
+              info@semolekae.com
+            </a>
+          </div>
+
+          {/* YouTube */}
+          <div>
+            <p className="text-base font-semibold text-[#1B74E4] mb-2">YouTube:</p>
+            <a
+              href="https://youtube.com/@kgwaso?si=15aIM-khqp505f8g"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#1B74E4] hover:bg-[#0B2B59] text-white font-medium py-2 px-6 rounded-full transition"
+            >
+              Visit Channel
+            </a>
+          </div>
         </div>
 
-        {/* 🔗 YouTube Link */}
-        <div className="mb-6 text-center">
-          <p className="text-lg font-semibold text-yellow-400 mb-1">Watch Us on YouTube:</p>
-          <a
-            href="https://youtube.com/@kgwaso?si=15aIM-khqp505f8g"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded-full transition duration-300"
-          >
-            Visit Channel
-          </a>
-        </div>
-
-        {/* 📬 Contact Form */}
-        <form className="space-y-4">
+        {/* Right: Contact Form */}
+        <form className="flex flex-col gap-4">
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full px-4 py-2 rounded-lg bg-[#0f172a] border border-yellow-400 placeholder-yellow-300 text-yellow-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="px-4 py-3 rounded border border-[#D1D9E6] focus:outline-none focus:ring-2 focus:ring-[#1B74E4] text-gray-800 placeholder-gray-400 bg-white"
           />
           <input
             type="email"
             placeholder="Your Email"
-            className="w-full px-4 py-2 rounded-lg bg-[#0f172a] border border-yellow-400 placeholder-yellow-300 text-yellow-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="px-4 py-3 rounded border border-[#D1D9E6] focus:outline-none focus:ring-2 focus:ring-[#1B74E4] text-gray-800 placeholder-gray-400 bg-white"
           />
           <textarea
             placeholder="Your Message"
-            rows="4"
-            className="w-full px-4 py-2 rounded-lg bg-[#0f172a] border border-yellow-400 placeholder-yellow-300 text-yellow-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            rows="5"
+            className="px-4 py-3 rounded border border-[#D1D9E6] focus:outline-none focus:ring-2 focus:ring-[#1B74E4] text-gray-800 placeholder-gray-400 bg-white"
           ></textarea>
           <button
             type="submit"
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 rounded-full transition duration-300"
+            className="bg-[#1B74E4] hover:bg-[#0B2B59] text-white font-semibold py-3 rounded transition"
           >
             Send Message
           </button>

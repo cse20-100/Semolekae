@@ -6,18 +6,17 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {
-        scrollDisappear: {
-          '0%': { opacity: 1, transform: 'translateX(100%) scale(1)' },
-          '40%': { opacity: 1, transform: 'translateX(0%) scale(0.95)' },
-          '60%': { opacity: 0, transform: 'translateX(-50%) scale(0.9)' },
-          '100%': { opacity: 0, transform: 'translateX(-100%) scale(0.9)' },
-        },
+      colors: {
+        primary: "#a4d65e", // EasyLend lime green
+        accent: "#7cbc46",  // Rich green accent
+        dark: "#0f172a",    // Deep navy for navs/footers
+        light: "#f9fafb",   // Soft background / light text
+        muted: "#64748b",   // Cool muted gray (optional)
       },
-      animation: {
-        scrollDisappear: 'scrollDisappear 10s ease-in-out infinite',
+      fontFamily: {
+        sans: ["Inter", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
       },
     },
   },
   plugins: [],
-}
+};

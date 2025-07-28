@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Services = () => {
+  const [openIndices, setOpenIndices] = useState([]);
+
+  const toggleIndex = (index) => {
+    setOpenIndices((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
+
   const servicesData = [
     {
       title: "Employment & Labour Law",
@@ -105,35 +114,60 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-6 py-16 flex flex-col items-center overflow-y-auto">
-      <div className="max-w-6xl w-full space-y-12">
-        <h1 className="text-5xl font-extrabold text-yellow-400 text-center mb-12">
+    <section
+      id="services"
+      className="min-h-screen bg-gradient-to-b from-[#e5eef5] to-[#bfdcf0] pt-24 pb-6 px-4 md:px-10"
+    >
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-10 text-[#0B2B59]">
           Our Legal Services
         </h1>
+        <div className="space-y-4">
+          {servicesData.map(({ title, description, items }, index) => {
+            const isOpen = openIndices.includes(index);
+            return (
+              <div
+                key={index}
+                className="bg-white border border-[#D1D9E6] rounded-2xl shadow-md"
+              >
+                <button
+                  onClick={() => toggleIndex(index)}
+                  className="w-full text-left px-6 py-4 flex justify-between items-center hover:bg-[#e5eef5] transition-colors rounded-2xl group"
+                >
+                  <h2 className="text-xl font-semibold text-[#0B2B59] group-hover:text-[#1B74E4] transition-colors">
+                    {title}
+                  </h2>
+                  <span className="text-[#1B74E4] text-2xl font-bold select-none">
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
 
-        {servicesData.map(({ title, description, items }, i) => (
-          <section
-            key={i}
-            className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-12 rounded-2xl border-4 border-yellow-400 p-6 bg-[#1e293b]"
-          >
-            <div className="md:w-1/3">
-              <h2 className="text-3xl font-semibold text-yellow-400 mb-4">
-                {title}
-              </h2>
-              {description && (
-                <p className="text-gray-300 leading-relaxed">{description}</p>
-              )}
-            </div>
-
-            <ul className="md:w-2/3 list-disc list-inside text-gray-300 space-y-2 leading-relaxed">
-              {items.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        ))}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-6 pb-6 text-base text-[#0B2B59] overflow-hidden"
+                    >
+                      {description && (
+                        <p className="mb-3 leading-relaxed">{description}</p>
+                      )}
+                      <ul className="list-disc list-inside space-y-1 text-[#0B2B59]">
+                        {items.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
