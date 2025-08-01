@@ -48,6 +48,14 @@ const Services = () => {
       ],
     },
     {
+      title: "Intellectual Property",
+      items: [
+        "Copyright",
+        "Patents",
+        "Industrial Property",
+      ],
+    },
+    {
       title: "Property & Conveyancing",
       items: [
         "Property transfers and deeds registration",
@@ -64,10 +72,6 @@ const Services = () => {
       ],
     },
     {
-      title: "Intellectual Property",
-      items: ["Industrial Property", "Copyright", "Patents"],
-    },
-    {
       title: "Litigation & Dispute Resolution",
       items: [
         "Civil, commercial, and labour litigation",
@@ -81,7 +85,7 @@ const Services = () => {
       description:
         "We assist clients in the formation, registration, and administration of trusts in accordance with the Trust Property Control Act, 2022. Our services include:",
       items: [
-        "Structuring and drafting trust deeds tailored to the client's objectives",
+        "Structuring and drafting trust deeds tailored to the client’s objectives",
         "Advising on the selection and appointment of trustees",
         "Preparing and submitting trust registration documents with the Master of the High Court",
         "Ensuring compliance with statutory requirements, including fiduciary duties and record-keeping",
@@ -152,9 +156,11 @@ const Services = () => {
                       className="px-6 pb-6 text-base text-[#0B2B59] overflow-hidden"
                     >
                       {description && (
-                        <p className="mb-3 leading-relaxed">{description}</p>
+                        <p className="mb-4 text-sm md:text-base leading-relaxed">
+                          {description}
+                        </p>
                       )}
-                      <ul className="list-disc list-inside space-y-1 text-[#0B2B59]">
+                      <ul className="list-disc pl-5 space-y-2 text-sm md:text-base">
                         {items.map((item, idx) => (
                           <li key={idx}>{item}</li>
                         ))}

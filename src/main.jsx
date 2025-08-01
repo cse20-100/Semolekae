@@ -1,12 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-
+// src/main.jsx or src/index.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "./index.css";
-import "./styles/global.css";  // <-- your global styles
-import App from "./LandingPage.jsx";  // <-- imports your landing page as main app
+import "./styles/global.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import App from "./App"; // ✅ This is now your router
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-)
+);

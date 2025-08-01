@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply primary font and background */
+body {
+  @apply font-sans bg-light text-dark;
+}
+
+/* Navbar style helpers */
+.nav-link {
+  @apply text-dark font-semibold hover:text-accent transition duration-300;
+}
+
+/* Button style examples */
+.btn-primary {
+  @apply bg-primary text-white font-medium py-2 px-4 rounded hover:bg-accent transition duration-300;
+}
+
+.btn-accent {
+  @apply bg-accent text-white font-medium py-2 px-4 rounded hover:bg-primary transition duration-300;
+}
+
+/* Headings and text */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-dark font-bold;
+}
+
+p {
+  @apply text-muted leading-relaxed;
+}
+
+/* Utility background blocks */
+.bg-section {
+  @apply bg-light p-8 rounded-lg shadow-sm;
+}
